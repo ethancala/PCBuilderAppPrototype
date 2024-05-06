@@ -1,0 +1,37 @@
+﻿@model PCBuilderPrototype1.Models.PCBuild
+
+@{
+    ViewData["Title"] = "SubmitBuild";
+}
+
+<h2>Build Your PC</h2>
+
+<form action="" method="post">
+    <div class="form-group">
+        <label for="cpu">CPU:</label>
+        <select class="form-control" id="cpu" name="cpu" asp-for="CPU">
+            <option value="Intel">Intel</option>
+            <option value="AMD">AMD</option>
+        </select>
+
+        <label for="gpu">GPU:</label>
+        <select class="form-control" id="gpu" name="gpu" asp-for="GPU">
+            <option value="Nividia">Nividia</option>
+            <option value="AMD">AMD</option>
+        </select>
+
+        <label for="mobo">Motherboard:</label>
+        <select class="form-control" id="mobo" name="mobo" asp-for="MOBO">
+            <option value="MSI">MSI</option>
+            <option value="ASUS">ASUS</option>
+        </select>
+
+        <label for="ram">RAM:</label>
+        <select class="form-control" id="ram" name="ram" asp-for="RAM">
+            <option value="Corsair">Corsair</option>
+            <option value="HyperX">HyperX</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
