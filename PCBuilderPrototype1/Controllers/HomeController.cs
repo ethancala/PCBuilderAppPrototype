@@ -11,11 +11,12 @@ namespace PCBuilderPrototype1.Controllers
     {
         
         private readonly ILogger<HomeController> _logger;
+ 
 
         public HomeController(ILogger<HomeController> logger)
         {
-            _logger = logger;
-        }
+            _logger = logger;        }
+
 
 
         [HttpPost]
@@ -29,20 +30,33 @@ namespace PCBuilderPrototype1.Controllers
             return RedirectToAction("BuildConfirmation");
 
         }
+        public IActionResult SubmitBuild()
+        {
+            return View("SubmitBuild");
+        }
+
+
 
         public IActionResult BuildConfirmation()
         {
             return View();
         }
 
-        public IActionResult SubmitBuild()
-        {
-            return View("SubmitBuild");
-        }
+       
 
         public IActionResult MyBuilds()
         {
-            return View("MyBuilds");
+            List<PCBuild> builds = new List<PCBuild>();
+
+            using(var db = new ApplicationDbContext())
+            {
+                builds = db.PCBuilds.ToList();
+            }
+
+            ViewBag.builds = builds;
+
+         
+            return View();
         }
 
         public IActionResult Index()

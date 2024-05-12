@@ -1,3 +1,41 @@
-﻿@{
+﻿@model IEnumerable<PCBuilderPrototype1.Models.PCBuild>
+
+@{
     ViewData["Title"] = "My Builds";
 }
+
+<h2>My Builds</h2>
+
+
+<div class="container">
+
+    @if(ViewBag.builds != null)
+    {
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">CPU</th>
+                    <th scope="col">GPU</th>
+                    <th scope="col">RAM</th>
+                    <th scope="col">MOBO</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var build in ViewBag.builds)
+                {
+                    <tr>
+                        <td>@build.ID</td>
+                        <td>@build.CPU</td>
+                        <td>@build.GPU</td>
+                        <td>@build.RAM</td>
+                        <td>@build.MOBO</td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    }
+
+
+</div>
